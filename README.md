@@ -1,5 +1,10 @@
-# Sticky navigation bar
+# Sticky Navigation Bar
 A simple, lightweight and performant jQuery plugin to fix a navigation bar and highlight navigation items when scrolling a Single Page Application (SPA).
+
+# Sales pitch
+* **Simple solution**: It uses a variant of the Binary Search Algorithm and `Element.getBoundingClientRect()` method to determine the position of an element before binding an event handler to the `scroll` event.
+
+* **Fast and performant**: It creates and returns a new, throttled version of the `onScroll()` event handler when scrolling. It only calls the event handler function once per every given number of milliseconds. Useful for rate-limiting events like `scroll` and `resize`.
 
 # Usage
 Simply call `.stickynav()` on any selector targeting a navigation element, for example:
