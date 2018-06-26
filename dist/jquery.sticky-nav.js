@@ -6,28 +6,27 @@
 
 (function($) {
 
-  const DEFAULT_SELECTORS = {
-    navSelector:       'header',       // Navbar container id, class or tag selector
-    navLinkSelector:   'nav a',        // Navbar link id, class or tag selector
-    navActiveClass:    'active',       // Navbar selected item class
-    navStickyClass:    'sticky-nav',   // Sticky navbar modifier class
-    sectionSelector:   'section'       // Section id, class or tag selector
-  };
+  $.fn.stickynav = function(options) {
 
-  $.fn.stickyNavbar = (options) => {
+    const DEFAULT_SELECTORS = {
+      navActiveClass:    'active',       // Selected nav item modifier class
+      navStickyClass:    'sticky',       // Sticky nav modifier class
+      sectionSelector:   'section'       // Section id, class or tag selector
+    };
 
     // Merge options with defaults
     const selectors = $.extend({}, DEFAULT_SELECTORS, options);
 
     // Set jQuery DOM elements
-    const $navbarContainer = $(selectors.navSelector),
-          $navbarLinks = $(selectors.navLinkSelector),
-          $sections = $(selectors.sectionSelector);
-    
-    const navbarHeight = $(selectors.navSelector).height();
+    const $nav = this;
+    const $navLinks = $nav.find('a');
+    const $sections = $(selectors.sectionSelector);
 
-    let currentScrollPosition = 0,
-          sectionOffsetArray = [];      
+    const navHeight = $nav.height();
+    const scrollTopOffset = $sections.first().height() / 2;
+
+    let currentScrollPosition = 0;
+    let sectionOffsetArray = [];
 
 
     function initialise() {
@@ -36,7 +35,7 @@
     }
 
     function bindEvents() {
-      $navbarLinks.on('click', onClick);
+      $navLinks.on('click', onClick);
       $(window).on('scroll', throttle(onScroll, 50));
     }
 
@@ -49,20 +48,20 @@
 
         if (window.scroll) {
           window.scroll({
-            top: $(targetEl).offset().top - navbarHeight,
+            top: $(targetEl).offset().top - navHeight,
             left: 0,
             behavior: 'smooth'
           });
         } else {
           $('html, body').animate({
-            scrollTop: $(targetEl).offset().top - navbarHeight
+            scrollTop: $(targetEl).offset().top - navHeight
           });
         }
       }
     }
 
     function onScroll() {
-      var scrollTop = $(document).scrollTop() + navbarHeight,
+      var scrollTop = $(document).scrollTop() + navHeight,
           closestPosition = findClosestNumber(scrollTop, sectionOffsetArray);
 
       // select navbar item
@@ -71,11 +70,11 @@
         currentScrollPosition = closestPosition;
       }
 
-      // fix position of navbar
-      if (scrollTop > ($sections.first().height() / 2)) {
-        $navbarContainer.addClass(selectors.navStickyClass);
+      // fix navbar
+      if (scrollTop > scrollTopOffset) {
+        $nav.addClass(selectors.navStickyClass);
       } else {
-        $navbarContainer.removeClass(selectors.navStickyClass);
+        $nav.removeClass(selectors.navStickyClass);
       }
     }
 
@@ -101,7 +100,11 @@
     }
 
     function selectNavItem(el) {
-      $navbarLinks.removeClass(selectors.navActiveClass);
+      if (!$nav.hasClass(selectors.navStickyClass)) {
+        $nav.addClass(selectors.navStickyClass);
+      }
+
+      $navLinks.removeClass(selectors.navActiveClass);
       $(el).addClass(selectors.navActiveClass);
     }
 

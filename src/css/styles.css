@@ -14,19 +14,16 @@ header {
 }
 
 nav {
+  background: #000;
   margin: 0;
-  padding: 0;
-  background: #ff6e6f;
   overflow: hidden;
+  padding: 0;
   position: absolute;
   top: 0;
 }
 
 nav.sticky {
-  background: #000;
-  border: 0;
   position: fixed;
-  transition: all ease .3s;
 }
 
 nav ul {
@@ -50,10 +47,6 @@ nav ul li a {
 }
 
 nav ul li a.active {
-  background: #343434;
-}
-
-nav.sticky ul li a.active {
   background: #ff6e6f;
 }
 
