@@ -5,12 +5,24 @@ div {
   width: 100%;
 }
 
+body {
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+
 header {
-  padding: 60px 0;
+  padding: 90px 0;
   background: #fff;
-  font: normal 2em / normal 'Nixie One', serif;
-  color: #ff6e6f;
   text-align: center;
+}
+
+header h1 {
+  color: #ff6e6f;
+  font-size: 3em;
+}
+
+header p {
+  color: #000;
+  font-size: 1.5em;
 }
 
 nav {
@@ -20,10 +32,6 @@ nav {
   padding: 0;
   position: absolute;
   top: 0;
-}
-
-nav.sticky {
-  position: fixed;
 }
 
 nav ul {
@@ -39,9 +47,9 @@ nav ul li {
 }
 
 nav ul li a {
-  padding: 5px 20px;
-  font: normal 1em / normal 'Open Sans Condensed', sans-serif;
   color: #fff;
+  font-size: .9em;
+  padding: 5px 20px;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -50,10 +58,23 @@ nav ul li a.active {
   background: #ff6e6f;
 }
 
+nav.sticky {
+  background: #fff;
+  position: fixed;
+  transition: all ease .3s;
+}
+
+nav.sticky ul li a {
+  color: #000;
+}
+
+nav.sticky ul li a.active {
+  color: #fff;
+}
+
 section {
   padding: 20px;
   height: 500px;
-  font: normal 2em / normal 'Open Sans Condensed', sans-serif;
 }
 
 section#section1,
@@ -68,14 +89,10 @@ section#section4 {
   color: #eee;
 }
 
-h1 {
-  font-size: 1.8em;
-}
-
 footer {
   padding: 20px;
-  background: #ff6e6f;
-  font: normal 1em 'Open Sans Condensed', sans-serif;
+  background: #000;
+  font-size: 1em;
   color: #fff;
   text-align: center;
 }

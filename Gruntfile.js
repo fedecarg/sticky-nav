@@ -79,7 +79,7 @@ module.exports = function(grunt) {
      *************************************************************************/
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("dd-mm-yyyy") %> */',
+        banner: '/*! <%= pkg.name %> <%= pkg.version %> Copyright (c) <%= pkg.author.name %> - <%= grunt.template.today("dd-mm-yyyy") %> */',
         compress: {
           drop_console: true
         }

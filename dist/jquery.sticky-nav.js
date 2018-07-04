@@ -1,5 +1,5 @@
 /*!============================================================
- * sticky-nav.js v1.0.0
+ * jquery.sticky-nav.js
  * Copyright (c) 2018 Federico Cargnelutti <fedecarg@gmail.com>
  * http://www.fedecarg.com/
  ============================================================*/

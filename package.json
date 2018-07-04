@@ -1,6 +1,6 @@
 {
-  "name": "sticky-navbar",
-  "version": "1.0.0",
+  "name": "jquery.sticky-nav.js",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/fedecarg/sticky-navbar.git"
