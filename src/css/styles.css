@@ -1,24 +1,25 @@
 header {
-  padding: 154px 0 100px;
-}
-
-@media (min-width: 992px) {
-  header {
-    padding: 156px 0 100px;
-  }
+  padding: 150px 0 100px;
 }
 
 section {
-  height: 500px;
-  padding-top: 50px;
+  min-height: 600px;
+  padding: 50px 0 50px;
 }
 
-.nav-link {
+.navbar .nav-link {
   border-radius: 8px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin: 0 8px;
+  padding: 8px;
 }
 
-.nav-link.active {
+@media (max-width: 992px) {
+  .navbar .nav-link {
+    margin: 0;
+    padding: 8px;
+  }
+}
+
+.navbar .nav-link.active {
   background-color: rgba(0, 0, 0, .5);
 }
