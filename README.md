@@ -28,7 +28,7 @@ Simply call `.stickynav()` on any selector targeting a navigation element, for e
 ```
 
 ```javascript
-<script src="js/jquery.sticky-nav-1.0.0.min.js"></script>
+<script src="js/jquery.sticky-nav-1.1.0.min.js"></script>
 <script>
 $(function(){
   $('nav').stickynav();
