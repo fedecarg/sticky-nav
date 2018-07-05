@@ -4,9 +4,14 @@ A simple, lightweight and performant jQuery plugin to fix a navigation bar and h
 You can see it in action here: http://stickynav.fedecarg.com/
 
 # Features
-* **Well designed**: It uses a variant of the Binary Search Algorithm to determine the position of an element before binding an event handler to the `scroll` event.
 
-* **Fast and performant**: It creates and returns a new, throttled version of the `onScroll()` event handler when scrolling. It only calls the event handler function once per every given number of milliseconds. Useful for rate-limiting events like `scroll` and `resize`.
+* Clickable nav links that smooth scroll to content sections.
+* Responsive behavior when clicking nav links perfect for single page applications.
+* Highlights which section of the page you're on in the navigation bar.
+* Minimal custom CSS so you are free to explore your own unique design options.
+* Simple and efficient. It uses a variant of the Binary Search Algorithm to determine the position of an element before binding an event handler to the scroll event.
+* Fast and performant. It creates and returns a new, throttled version of the onScroll() event handler when scrolling. It only calls the event handler function once per every given number of milliseconds. Useful for rate-limiting events like scroll and resize.
+* There's no need to include bootstrap.bundle.min.js, jquery.waypoints.min.js or any other bloated js library.
 
 # Usage
 Simply call `.stickynav()` on any selector targeting a navigation element, for example:
