@@ -1,36 +1,123 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
   <head>
-    <meta charset="UTF-8">
-    <title>jQuery Sticky Nav - By Federico Cargnelutti @fedecarg</title>
-    <link rel="stylesheet" href="css/vendor/normalize-5.0.0.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Sticky navigation bar with content section highlight">
+    <meta name="author" content="Federico Cargnelutti">
+
+    <title>jQuery StickyNav - By Federico Cargnelutti @fedecarg</title>
+
+    <link href="css/vendor/bootstrap-4.1.1.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
   </head>
+
   <body>
-    <nav>
-      <ul>
-        <li><a href="#section1">section 1</a></li>
-        <li><a href="#section2">section 2</a></li>
-        <li><a href="#section3">section 3</a></li>
-        <li><a href="#section4">section 4</a></li>
-      </ul>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#header">StickyNav Demo</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#download">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
-    <header>
-      <h1>jquery.sticky-nav.js</h1>
-      <p>Sticky navigation bar with content section highlight</p>
+    <header class="bg-primary text-white" id="header">
+      <div class="container text-center">
+        <h1>jQuery StickyNav</h1>
+        <p class="lead">Sticky navigation bar with content section highlight</p>
+      </div>
     </header>
 
-    <section id="section1">Section 1</section>
-    <section id="section2">Section 2</section>
-    <section id="section3">Section 3</section>
-    <section id="section4">Section 4</section>
+    <section id="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Features</h2>
+            <ul>
+              <li>Clickable nav links that smooth scroll to content sections</li>
+              <li>Responsive behavior when clicking nav links perfect for single page applications</li>
+              <li>Highlights which section of the page you're on in the navigation bar</li>
+              <li>Minimal custom CSS so you are free to explore your own unique design options</li>
+              <li>Uses a variant of the Binary Search Algorithm to determine the position of an element before binding an event handler to the scroll event.</li>
+              <li>Creates and returns a new, throttled version of the onScroll() event handler when scrolling. It only calls the event handler function once per every given number of milliseconds. Useful for rate-limiting events like scroll and resize.</li>
+              <li>No need to include bootstrap.bundle.min.js, jquery.waypoints.min.js or any other bloated js library</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <footer>Footer</footer>
+    <section id="download" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Download plugin</h2>
+            <p class="lead">Compressed and uncompressed copies of jQuery files are available. The uncompressed file is best used during development or debugging; the compressed file saves bandwidth and improves performance in production.</p>
+            <p>https://github.com/fedecarg/sticky-nav/tree/master/dist</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script src="js/vendor/babel-polyfill-6.26.0.min.js"></script>
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Meet the team</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Contact us</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Federico Cargnelutti</p>
+      </div>
+    </footer>
+
+    <!-- Vendor code -->
     <script src="js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="js/vendor/babel-polyfill-6.26.0.min.js"></script>
+
+    <!-- jQuery plugin -->
     <script src="js/jquery.sticky-nav.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('nav').stickynav();
+      });
+    </script>
+
   </body>
+
 </html>

@@ -1,97 +1,24 @@
-header,
-nav,
-footer,
-div {
-  width: 100%;
-}
-
-body {
-  font-family: Helvetica, Arial, Sans-Serif;
-}
-
 header {
-  padding: 120px 0;
-  background: #fff;
-  text-align: center;
+  padding: 154px 0 100px;
 }
 
-header h1 {
-  color: #ff6e6f;
-  font-size: 2.6em;
-}
-
-header p {
-  color: #000;
-  font-size: 1.5em;
-}
-
-nav {
-  background: #000;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  top: 0;
-}
-
-nav ul {
-  list-style: none;
-  text-align: center;
-  margin: 8px 0;
-  overflow: hidden;
-}
-
-nav ul li {
-  display: inline-block;
-  margin: 0 -4px;
-  padding: 5px 0;
-}
-
-nav ul li a {
-  border-radius: 7px;
-  color: #fff;
-  display: block;
-  font-size: .9em;
-  padding: 10px 20px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-nav ul li a.active {
-  background: #ff6e6f;
-  color: #fff;
-}
-
-nav.sticky {
-  background: #000;
-  position: fixed;
-}
-
-nav.sticky ul li a {
-  color: #fff;
+@media (min-width: 992px) {
+  header {
+    padding: 156px 0 100px;
+  }
 }
 
 section {
-  padding: 20px;
   height: 500px;
+  padding-top: 50px;
 }
 
-section#section1,
-section#section3 {
-  background: #343434;
-  color: #eee;
+.nav-link {
+  border-radius: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
-section#section2,
-section#section4 {
-  background: #666;
-  color: #eee;
-}
-
-footer {
-  padding: 20px;
-  background: #000;
-  font-size: 1em;
-  color: #fff;
-  text-align: center;
+.nav-link.active {
+  background-color: rgba(0, 0, 0, .5);
 }
