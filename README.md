@@ -1,7 +1,10 @@
 # Sticky Navigation Bar
 A simple, lightweight and performant jQuery plugin to fix a navigation bar and highlight navigation items when scrolling a Single Page Application (SPA).
 
-You can see it in action here: http://stickynav.fedecarg.com/
+* Demo 1: http://stickynav.fedecarg.com/
+* Demo 2: http://www.fedecarg.com/
+
+![](https://raw.githubusercontent.com/fedecarg/sticky-nav/master/src/images/sticky-nav-screenshot.png)
 
 # Features
 
