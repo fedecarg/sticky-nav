@@ -1,6 +1,6 @@
 /*!============================================================
  * jquery.sticky-nav.js
- * Copyright (c) 2018 Federico Cargnelutti <fedecarg@gmail.com>
+ * Copyright (c) Federico Cargnelutti <fedecarg@gmail.com>
  * http://www.fedecarg.com/
  ============================================================*/
 
@@ -9,24 +9,24 @@
   $.fn.stickynav = function(options) {
 
     const DEFAULT_SELECTORS = {
-      navActiveClass:    'active',       // Selected nav item modifier class
-      navStickyClass:    'sticky',       // Sticky nav modifier class
-      sectionSelector:   'section'       // Section id, class or tag selector
+      navActiveClass:    'active',   // Selected nav item modifier class
+      navStickyClass:    'sticky',   // Sticky nav modifier class
+      sectionSelector:   'section'   // Section id, class or tag selector
     };
 
     // Merge options with defaults
-    const selectors = $.extend({}, DEFAULT_SELECTORS, options);
+    options = $.extend({}, DEFAULT_SELECTORS, options);
 
     // Set jQuery DOM elements
     const $nav = this;
     const $navLinks = $nav.find('a');
-    const $sections = $(selectors.sectionSelector);
+    const $sections = $(options.sectionSelector);
 
     const navHeight = $nav.height();
     const scrollTopOffset = $sections.first().height() / 2;
 
     let currentScrollPosition = 0;
-    let sectionOffsetArray = [];
+    let offsetNumbers = [0];
 
 
     function initialise() {
@@ -36,7 +36,7 @@
 
     function bindEvents() {
       $navLinks.on('click', onClick);
-      $(window).on('scroll', throttle(onScroll, 50));
+      $(window).on('scroll', throttle(onScroll, 20));
     }
 
     function onClick(e) {
@@ -46,23 +46,15 @@
       if ($(targetEl).length) {
         selectNavItem(this);
 
-        if (window.scroll) {
-          window.scroll({
-            top: $(targetEl).offset().top - navHeight,
-            left: 0,
-            behavior: 'smooth'
-          });
-        } else {
           $('html, body').animate({
             scrollTop: $(targetEl).offset().top - navHeight
           });
         }
-      }
     }
 
     function onScroll() {
       var scrollTop = $(document).scrollTop() + navHeight,
-          closestPosition = findClosestNumber(scrollTop, sectionOffsetArray);
+          closestPosition = findClosestNumber(scrollTop, offsetNumbers);
 
       // select navbar item
       if (closestPosition !== currentScrollPosition) {
@@ -72,10 +64,16 @@
 
       // fix navbar
       if (scrollTop > scrollTopOffset) {
-        $nav.addClass(selectors.navStickyClass);
+        $nav.addClass(options.navStickyClass);
       } else {
-        $nav.removeClass(selectors.navStickyClass);
+        $nav.removeClass(options.navStickyClass);
       }
+    }
+
+    function findClosestNumber(num, arr) {
+      return arr.reduce(function(prev, curr) {
+        return (Math.abs(curr - num) < Math.abs(prev - num) ? curr : prev);
+      });
     }
 
     function calculateOffsets() {
@@ -83,7 +81,7 @@
         const el = $(this)[0];
         const offsetTop = getOffsetTop(el);
 
-        sectionOffsetArray.push(offsetTop);
+        offsetNumbers.push(offsetTop);
         getNavItem(el).addClass('section-offset-' + offsetTop);
       });
     }
@@ -100,18 +98,12 @@
     }
 
     function selectNavItem(el) {
-      if (!$nav.hasClass(selectors.navStickyClass)) {
-        $nav.addClass(selectors.navStickyClass);
+      if (!$nav.hasClass(options.navStickyClass)) {
+        $nav.addClass(options.navStickyClass);
       }
 
-      $navLinks.removeClass(selectors.navActiveClass);
-      $(el).addClass(selectors.navActiveClass);
-    }
-
-    function findClosestNumber(num, arr) {
-      return arr.reduce(function(prev, curr) {
-        return (Math.abs(curr - num) < Math.abs(prev - num) ? curr : prev);
-      });
+      $navLinks.removeClass(options.navActiveClass);
+      $(el).addClass(options.navActiveClass);
     }
 
     function throttle(func, delay) {
